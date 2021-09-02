@@ -9,35 +9,35 @@ import { TasksService } from './tasks.service';
 export class TasksController {
     constructor(private tasksService: TasksService){}
 
-    @Get()
-    getTasks(@Query(ValidationPipe) filterDto:GetTasksFilterDTO):Task[]{
-        if(Object.keys(filterDto).length){
-            return this.tasksService.getTasksWithFilters(filterDto);
-        }
-        return this.tasksService.getAllTasks();
-    }
+    // @Get()
+    // getTasks(@Query(ValidationPipe) filterDto:GetTasksFilterDTO):Task[]{
+    //     if(Object.keys(filterDto).length){
+    //         return this.tasksService.getTasksWithFilters(filterDto);
+    //     }
+    //     return this.tasksService.getAllTasks();
+    // }
 
-    @Get('/:taskId')
-    getTaskById(@Param('taskId') taskId : string):Task{
-        return this.tasksService.getTaskById(taskId)
-    }
+    // @Get('/:taskId')
+    // getTaskById(@Param('taskId') taskId : string):Task{
+    //     return this.tasksService.getTaskById(taskId)
+    // }
 
-    @Post()
-    @UsePipes(ValidationPipe)
-    createTask(@Body() createTaskDto:CreateTaskDTO) :Task{
-        return this.tasksService.createTask(createTaskDto);
-    }
+    // @Post()
+    // @UsePipes(ValidationPipe)
+    // createTask(@Body() createTaskDto:CreateTaskDTO) :Task{
+    //     return this.tasksService.createTask(createTaskDto);
+    // }
 
-    @Delete('/:taskId')
-    deleteTask(@Param('taskId') taskId:string):string{
-        return this.tasksService.deleteTask(taskId)
-    }
+    // @Delete('/:taskId')
+    // deleteTask(@Param('taskId') taskId:string):string{
+    //     return this.tasksService.deleteTask(taskId)
+    // }
 
-    @Patch('/:taskId/status')
-    updateTask(
-        @Param('taskId') taskId:string,
-        @Body('status', TaskStatusValidationPipe) status:TaskStatus
-    ){
-        return this.tasksService.updateTask(taskId, status)
-    }
+    // @Patch('/:taskId/status')
+    // updateTask(
+    //     @Param('taskId') taskId:string,
+    //     @Body('status', TaskStatusValidationPipe) status:TaskStatus
+    // ){
+    //     return this.tasksService.updateTask(taskId, status)
+    // }
 }
